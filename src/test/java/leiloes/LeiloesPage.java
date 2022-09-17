@@ -1,16 +1,16 @@
 package leiloes;
 
+import br.com.alura.leilao.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LeiloesPage {
+public class LeiloesPage extends PageObject {
 
-  private WebDriver browser;
   private static final String URL_CADASTRO_LEILAO = "http://localhost:8080/leiloes/new";
 
   public LeiloesPage(WebDriver browser) {
-    this.browser = browser;
+    super(browser);
   }
 
   public CadastroLeilaoPage carregarFormulario() {
@@ -29,7 +29,4 @@ public class LeiloesPage {
             colunaData.getText().equals(data);
   }
 
-  public void fechar() {
-    browser.quit();
-  }
 }

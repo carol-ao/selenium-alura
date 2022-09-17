@@ -1,15 +1,15 @@
 package leiloes;
 
+import br.com.alura.leilao.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class CadastroLeilaoPage {
+public class CadastroLeilaoPage extends PageObject {
 
-  private WebDriver browser;
   private static final String URL_CADASTRO_LEILAO = "http://localhost:8080/leiloes/new";
 
   public CadastroLeilaoPage(WebDriver browser) {
-    this.browser = browser;
+    super(browser);
   }
 
   public LeiloesPage cadastrarLeilao(String nome, String data, String valor) {
@@ -32,7 +32,4 @@ public class CadastroLeilaoPage {
         && pageSource.contains("deve ser uma data no formato dd/MM/yyyy");
   }
 
-  public void fechar() {
-    this.browser.quit();
-  }
 }
